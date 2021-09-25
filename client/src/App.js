@@ -8,7 +8,7 @@ import './App.css';
 //Pages
 import LoginPage from './Pages/LoginPage'
 import NotFoundPage from './Pages/NotFoundPage'
-import DashboardPage from './Pages/DashboardPage';
+import DashboardPage from './Pages/DashboardPage/DashboardPage';
 import InputPage from './Pages/InputPage';
 
 function App() {

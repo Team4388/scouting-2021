@@ -21,12 +21,12 @@ const LoginPage = () => {
         <div>
             <button onClick={() => {
                 console.log(remotedb);
-                remotedb.logIn('2021', 'Ridgebotics').then(function () {
-                    console.log("CouchDb Login Successful!");
-                }).catch(function (err) {
-                    console.log("Unable to login to CouchDb!"); 
-                    console.log(err);
-                });
+            //     remotedb.logIn('2021', 'Ridgebotics').then(function () {
+            //         console.log("CouchDb Login Successful!");
+            //     }).catch(function (err) {
+            //         console.log("Unable to login to CouchDb!"); 
+            //         console.log(err);
+            //     });
             }}>
                 Sign In 2021
             </button>
