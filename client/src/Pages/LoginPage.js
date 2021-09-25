@@ -1,7 +1,8 @@
 import React from 'react';
+import { useRemoteDb } from '../DbContext';
 
 const LoginPage = () => {
-    // const localdb = useLocalDb();
+    const remotedb = useRemoteDb();
     return (
         // <div className = "form_inner">
         //     <form>
@@ -18,7 +19,17 @@ const LoginPage = () => {
         //     </form>
         // </div>
         <div>
-            {/* <button onClick={() => Login2021()}>Sign In 2021</button> */}
+            <button onClick={() => {
+                console.log(remotedb);
+                remotedb.logIn('2021', 'Ridgebotics').then(function () {
+                    console.log("CouchDb Login Successful!");
+                }).catch(function (err) {
+                    console.log("Unable to login to CouchDb!"); 
+                    console.log(err);
+                });
+            }}>
+                Sign In 2021
+            </button>
         </div>
     )
 }

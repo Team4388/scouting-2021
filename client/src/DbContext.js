@@ -1,5 +1,5 @@
+import PouchDB from 'pouchdb';
 import React, {useContext, useState} from 'react';
-import PouchDb from 'pouchdb-browser';
 
 const LocalDbContext = React.createContext();
 const RemoteDbContext = React.createContext();
@@ -13,17 +13,36 @@ export function useRemoteDb() {
 }
 
 export function DbProvider({ children }) {
-    const localdb = useState(new PouchDb('localdb'));
-    const remotedb = useState(new PouchDb('http://localhost:5984/'));
+    const [localdb, setLocaldb] = useState(new PouchDB('kcmt2021'));
+    //used in development server
+    const [remotedb, setRemotedb] = useState(new PouchDB('http://192.168.7.190:5984/kcmt2021', {
+        skip_setup: true,
+        auth: {
+            username: '2021',
+            password: 'Ridgebotics'
+        }
+    }));
+    // const [remotedb, setRemotedb] = useState(new PouchDB(window.location.protocol + "//" + window.location.hostname + ":5984/kcmt2021", {skip_setup: true}))
 
-    // function signIn()
-    // {
-    // // cushion.account.signOut();
-    // cushion.account.signIn({
-    //     username: "2021",
-    //     password: "Ridgebotics",
+    //Login to the Remote Database
+    // remotedb.logIn('2021', 'Ridgebotics').then(function () {
+    //     console.log("CouchDb Login Successful!");
+    // }).catch(function (err) {
+    //     console.log("Unable to login to CouchDb!"); 
+    //     console.log(err);
     // });
-    // }
+
+    localdb.sync(remotedb, {
+        live: true,
+        retry: true,
+    }).on('change', function (change) {
+    }).on('paused', function (info) {
+    }).on('active', function (info) {
+    }).on('error', function (err) {
+    });
+
+
+
 
     return (
         <LocalDbContext.Provider value={localdb}> 
