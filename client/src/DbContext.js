@@ -15,13 +15,14 @@ export function useRemoteDb() {
 export function DbProvider({ children }) {
     const [localdb, setLocaldb] = useState(new PouchDB('kcmt2021'));
     //used in development server
-    const [remotedb, setRemotedb] = useState(new PouchDB('http://192.168.7.190:5984/kcmt2021', {
+    const [remotedb, setRemotedb] = useState(new PouchDB('http://192.168.1.5:5984/kcmt2021', {
         skip_setup: true,
         auth: {
             username: '2021',
             password: 'Ridgebotics'
         }
     }));
+    console.log(remotedb);
     // const [remotedb, setRemotedb] = useState(new PouchDB(window.location.protocol + "//" + window.location.hostname + ":5984/kcmt2021", {skip_setup: true}))
 
     //Login to the Remote Database

@@ -6,7 +6,6 @@ import './App.css';
 // const Cushion = require('cushiondb-client');
 
 //Pages
-import LoginPage from './Pages/LoginPage'
 import NotFoundPage from './Pages/NotFoundPage'
 import DashboardPage from './Pages/DashboardPage/DashboardPage';
 import InputPage from './Pages/InputPage';
@@ -19,7 +18,6 @@ function App() {
             <Navigation />
             <Switch>
               <Route exact path="/" component={DashboardPage} />
-              <Route exact path="/Login" component={LoginPage} />
               <Route exact path="/Dashboard" component={DashboardPage} />
               <Route exact path="/Input" component={InputPage} />
               <Route exact path="/404" component={NotFoundPage} />

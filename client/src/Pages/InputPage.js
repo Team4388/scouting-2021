@@ -195,34 +195,6 @@ const InputPage = () => {
             </Form>
             )}
             </Formik>
-            <button onClick={() => {
-                localdb.put({
-                    //creates a uuid for pouchdb to index documents, doing it this way will make the db sort them by date when viewed
-                  _id: "4388:" + new Date().toISOString(),
-                  inner_port: 0,
-                  outer_port: 0,
-                  lower_port: 0,
-                  control_panel: 0,
-                  disabled: false,
-                  assisted_climb: false,
-                  climb: false,
-                  leveling_climb: false,
-                  trench_run: false,
-                  yellow_card: false,
-                  red_card: false,
-                  flipped_over: false,
-                  center_climb: false
-                }).then((result) => {
-                    console.log("Input Saved Successfully!");
-                    console.log(result);
-                }).catch((err) => {
-                    console.log("Failed To Save Input!");
-                    console.log(err);
-                })
-                localdb.allDocs().then(console.log);
-            }}>
-                Test Save Button
-            </button>
         </div>
     )
 }
